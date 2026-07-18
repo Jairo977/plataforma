@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import {
   Play, Volume2, Pause, CheckCircle2, Headphones, MessageCircle, Mic, Speech,
   Radio, Target, Music, Square, FileText, Lightbulb, User, Users, XCircle,
-  BookOpen, Bot, ListChecks, ScanSearch, Quote
+  BookOpen, Bot, ListChecks, ScanSearch, Quote, RefreshCw
 } from "lucide-react";
 import styles from "./listening.module.css";
 import { generatePracticeSession, BankQuestion } from "@/lib/question-bank";
@@ -170,6 +170,14 @@ export default function ListeningPage() {
                   </button>
                 ))}
               </div>
+              <button 
+                className="btn btn-secondary" 
+                style={{ width: "100%", marginTop: "1rem" }}
+                onClick={() => { setExercises(generatePracticeSession("listening")); setExIdx(0); handleReset(); }}
+              >
+                <RefreshCw size={14} style={{ display: "inline", marginRight: "6px" }} />
+                Cargar nueva práctica aleatoria
+              </button>
             </div>
 
             <div className={styles.rightCol}>

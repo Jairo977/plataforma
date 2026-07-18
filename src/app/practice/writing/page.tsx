@@ -5,7 +5,7 @@ import GrammarTip from "@/components/GrammarTip";
 import {
   Eye, Edit3, ChevronDown, ChevronUp, PenTool, AlertTriangle, CheckSquare,
   Compass, Sparkles, BookOpen, Bot, BarChart3, CheckCircle2, Link as LinkIcon,
-  BookMarked, Target, Clock, ListChecks
+  BookMarked, Target, Clock, ListChecks, RefreshCw
 } from "lucide-react";
 import styles from "./writing.module.css";
 import { generatePracticeSession, BankQuestion } from "@/lib/question-bank";
@@ -186,6 +186,14 @@ export default function WritingPage() {
               </button>
             ))}
             </div>
+          <button 
+            className="btn btn-secondary" 
+            style={{ width: "100%", marginTop: "1rem" }}
+            onClick={() => { setExercises(generatePracticeSession("writing")); setExIdx(0); handleReset(); }}
+          >
+            <RefreshCw size={14} style={{ display: "inline", marginRight: "6px" }} />
+            Cargar nueva práctica aleatoria
+          </button>
             </div>
 
             {/* ── RIGHT COLUMN ── */}

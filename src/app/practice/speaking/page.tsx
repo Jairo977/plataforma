@@ -3,7 +3,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import {
   Lightbulb, Edit3, Speech, Mic, Timer, Hourglass, Bot, BarChart3,
-  Play, Square, RotateCcw, ChevronDown, ChevronUp, Languages
+  Play, Square, RotateCcw, ChevronDown, ChevronUp, Languages, RefreshCw
 } from "lucide-react";
 import styles from "./speaking.module.css";
 import { generatePracticeSession, BankQuestion } from "@/lib/question-bank";
@@ -265,7 +265,15 @@ export default function SpeakingPage() {
                 <span className={`badge badge-${e.difficulty.toLowerCase()}`}>{e.difficulty}</span>
               </button>
             ))}
-            </div>
+          </div>
+          <button 
+            className="btn btn-secondary" 
+            style={{ width: "100%", marginTop: "1rem" }}
+            onClick={() => { setExercises(generatePracticeSession("speaking")); setExIdx(0); setFeedback(null); }}
+          >
+            <RefreshCw size={14} style={{ display: "inline", marginRight: "6px" }} />
+            Cargar nueva práctica aleatoria
+          </button>
             </div>
 
             {/* ── RIGHT COLUMN ── */}

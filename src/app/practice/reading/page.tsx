@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import {
-  BookOpen, FileText, Target, Lightbulb, Bot, CheckCircle2, XCircle
+  BookOpen, FileText, Target, Lightbulb, Bot, CheckCircle2, XCircle, RefreshCw
 } from "lucide-react";
 import styles from "./reading.module.css";
 import { generatePracticeSession, BankQuestion } from "@/lib/question-bank";
@@ -118,6 +118,14 @@ export default function ReadingPage() {
                   </button>
                 ))}
               </div>
+              <button 
+                className="btn btn-secondary" 
+                style={{ width: "100%", marginTop: "1rem" }}
+                onClick={() => { setExercises(generatePracticeSession("reading")); setExIdx(0); handleReset(); }}
+              >
+                <RefreshCw size={14} style={{ display: "inline", marginRight: "6px" }} />
+                Cargar nueva práctica aleatoria
+              </button>
             </div>
 
             {/* ── RIGHT COLUMN ── */}

@@ -12,14 +12,42 @@ export interface TTSOptions {
 
 let currentUtterance: SpeechSynthesisUtterance | null = null;
 
-/** Returns the best available English voice */
-function getEnglishVoice(preferredLang = "en-GB"): SpeechSynthesisVoice | null {
+/** 
+ * Returns the best available English voice, prioritizing natural/premium ones.
+ */
+export function getEnglishVoice(preferredLang = "en-GB"): SpeechSynthesisVoice | null {
+  if (typeof window === "undefined" || !window.speechSynthesis) return null;
   const voices = window.speechSynthesis.getVoices();
-  const preferred = voices.find((v) => v.lang === preferredLang);
-  if (preferred) return preferred;
-  const enUS = voices.find((v) => v.lang === "en-US");
-  if (enUS) return enUS;
-  return voices.find((v) => v.lang.startsWith("en")) || null;
+  if (voices.length === 0) return null;
+
+  // Filter only English voices
+  const enVoices = voices.filter(v => v.lang.startsWith("en"));
+  if (enVoices.length === 0) return null;
+
+  // Rank voices to find the most "natural" one
+  const rankVoice = (voice: SpeechSynthesisVoice) => {
+    let score = 0;
+    const name = voice.name.toLowerCase();
+    
+    // Priority 1: Cloud/Premium/Natural voices
+    if (name.includes("google")) score += 50;
+    if (name.includes("premium")) score += 40;
+    if (name.includes("natural")) score += 40;
+    if (name.includes("online")) score += 30;
+
+    // Priority 2: Match exact preferred language
+    if (voice.lang === preferredLang) score += 20;
+
+    // Priority 3: Penalty for robotic legacy voices
+    if (name.includes("zira") || name.includes("david") || name.includes("mark")) score -= 20;
+
+    return score;
+  };
+
+  // Sort by highest score
+  const sortedVoices = enVoices.sort((a, b) => rankVoice(b) - rankVoice(a));
+  
+  return sortedVoices[0] || null;
 }
 
 /** Stop any currently playing speech */

@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { generateExamSession, AdaptiveExamSession, BankQuestion } from "@/lib/question-bank";
+import { getEnglishVoice } from "@/lib/tts";
 import { Mic, PenTool, Headphones, BookOpen, Clock, AlertTriangle, AlertCircle, Target, CheckCircle2, Bot, ArrowRight, Home, RefreshCw, LogOut, CheckSquare, PlayCircle, Loader2 } from "lucide-react";
 import styles from "./simulator.module.css";
 
@@ -129,10 +130,10 @@ function useTextToSpeech() {
     utterance.lang = "en-GB";
     utterance.rate = 0.88;
     utterance.pitch = 1;
-    // Try to pick a British English voice
-    const voices = window.speechSynthesis.getVoices();
-    const british = voices.find(v => v.lang === "en-GB") || voices.find(v => v.lang.startsWith("en"));
-    if (british) utterance.voice = british;
+    // Try to pick the best natural English voice using our shared algorithm
+    const bestVoice = getEnglishVoice(utterance.lang);
+    if (bestVoice) utterance.voice = bestVoice;
+    
     utterance.onstart = () => setIsSpeaking(true);
     utterance.onend = () => { setIsSpeaking(false); setPlayCount(c => c + 1); };
     utterance.onerror = () => setIsSpeaking(false);

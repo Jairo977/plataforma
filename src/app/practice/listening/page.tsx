@@ -38,6 +38,7 @@ export default function ListeningPage() {
   const [explanation, setExplanation] = useState("");
   const [isExplaining, setIsExplaining] = useState(false);
   const [playState, setPlayState] = useState<PlayState>("idle");
+  const [playbackRate, setPlaybackRate] = useState<number>(0.85);
   const cancelRef = useRef<(() => void) | null>(null);
 
   useEffect(() => { setExercises(generatePracticeSession("listening")); }, []);
@@ -74,7 +75,7 @@ export default function ListeningPage() {
     setPlayState("play1");
     cancelRef.current = speakTwice(
       ex.audioScript,
-      { rate: 0.85 },
+      { rate: playbackRate },
       () => setPlayState("pause"),
       () => setPlayState("done"),
       () => setPlayState("play1"),
@@ -212,13 +213,29 @@ export default function ListeningPage() {
                     </div>
                   </div>
                   <div className={styles.audioControls}>
-                    <button
-                      className={`btn ${playState === "idle" || playState === "done" ? "btn-primary" : "btn-secondary"} btn-sm`}
-                      onClick={playState === "idle" || playState === "done" ? handlePlay : handleStop}
-                      disabled={!ex.audioScript}
-                    >
-                      {playState === "idle" || playState === "done" ? <><Play size={14} style={{ display: "inline", marginBottom: "2px" }} /> Escuchar</> : <><Square size={14} style={{ display: "inline", marginBottom: "2px" }} /> Parar</>}
-                    </button>
+                    <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                      <button
+                        className={`btn ${playState === "idle" || playState === "done" ? "btn-primary" : "btn-secondary"} btn-sm`}
+                        onClick={playState === "idle" || playState === "done" ? handlePlay : handleStop}
+                        disabled={!ex.audioScript}
+                      >
+                        {playState === "idle" || playState === "done" ? <><Play size={14} style={{ display: "inline", marginBottom: "2px" }} /> Escuchar</> : <><Square size={14} style={{ display: "inline", marginBottom: "2px" }} /> Parar</>}
+                      </button>
+                      
+                      <select 
+                        value={playbackRate} 
+                        onChange={(e) => setPlaybackRate(Number(e.target.value))}
+                        disabled={playState !== "idle" && playState !== "done"}
+                        style={{ padding: "0.3rem 0.5rem", borderRadius: "0.5rem", border: "1px solid var(--border-color)", backgroundColor: "var(--bg-card)", color: "var(--text-color)", fontSize: "0.85rem", cursor: "pointer" }}
+                        title="Velocidad de reproducción"
+                      >
+                        <option value={0.75}>Lento (0.75x)</option>
+                        <option value={0.85}>Normal (0.85x)</option>
+                        <option value={1.0}>Rápido (1.0x)</option>
+                        <option value={1.15}>Muy rápido (1.15x)</option>
+                      </select>
+                    </div>
+
                     <button
                       className={`${styles.transcriptBtn} btn btn-ghost btn-sm`}
                       onClick={() => setShowTranscript(!showTranscript)}

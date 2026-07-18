@@ -114,8 +114,8 @@ export default function DashboardPage() {
                 Niveles B1 & B2 · 4 módulos · Sistema CEFR
               </p>
             </div>
-            <Link href="/placement" className="btn btn-primary hide-mobile">
-              Repaso diagnóstico
+            <Link href="/simulator" className="btn btn-primary hide-mobile">
+              Iniciar Simulador
             </Link>
           </div>
 

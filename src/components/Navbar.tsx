@@ -15,8 +15,6 @@ const navLinks = [
   { href: "/practice/writing",   label: "Writing",    Icon: PenLine },
   { href: "/practice/listening", label: "Listening",  Icon: Headphones },
   { href: "/practice/reading",   label: "Reading",    Icon: BookOpen },
-  { href: "/practice/use-of-english", label: "Gramática", Icon: Brain },
-  { href: "/games",              label: "Juegos",     Icon: Gamepad2 },
   { href: "/simulator",          label: "Simulador",  Icon: FlaskConical },
 ];
 

@@ -66,7 +66,7 @@ export default function LandingPage() {
                 ejemplos modelo en cada tarea y estrategias de examen visibles.
               </p>
               <div className={styles.heroActions}>
-                <Link href="/placement" className="btn btn-primary btn-lg">Diagnosticar mi nivel</Link>
+                <Link href="/simulator" className="btn btn-primary btn-lg">Empezar Examen</Link>
                 <Link href="/dashboard" className="btn btn-secondary btn-lg">Entrar al dashboard</Link>
               </div>
             </div>

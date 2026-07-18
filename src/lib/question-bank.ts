@@ -1916,356 +1916,147 @@ export type WritingMistake = {
   explanation: string;
 };
 
+
 export const writingMistakesBank: WritingMistake[] = [
   {
     id: "M1",
-    wrongSentence: "I want to win more money at my new job.",
-    options: ["win", "earn", "take"],
-    correctOption: "earn",
-    explanation: "Se usa 'earn' (o 'gain' en algunos contextos) cuando hablas de ganar un salario o dinero por trabajo. 'Win' se usa para ganar una competencia, premio o la lotería."
+    wrongSentence: "Unfortunately, I am not available next Tuesday at 11 a.m. because I have an important school exam in that time.",
+    options: ["in that time", "at that time", "on that time"],
+    correctOption: "at that time",
+    explanation: "Se usa la preposici�n \"at\" para horas espec�ficas o momentos precisos (at that time, at 11 a.m.)."
   },
   {
     id: "M2",
-    wrongSentence: "She did a big mistake on the exam.",
-    options: ["did", "made", "had"],
-    correctOption: "made",
-    explanation: "En inglés se dice 'make a mistake', no 'do a mistake'."
+    wrongSentence: "Would it be possible meet later the same day, perhaps at 3 p.m.?",
+    options: ["possible meet", "possible to meet", "possible meeting"],
+    correctOption: "possible to meet",
+    explanation: "Despu�s de \"It is possible\" o \"Would it be possible\", el verbo siguiente debe ir en infinitivo con \"to\" (to meet)."
   },
   {
     id: "M3",
-    wrongSentence: "I am agree with you.",
-    options: ["am agree", "agree", "have agree"],
-    correctOption: "agree",
-    explanation: "El verbo es 'agree' por sí solo, no se usa con el verbo to be. Lo correcto es 'I agree with you'."
+    wrongSentence: "I look forward to hear from you.",
+    options: ["to hear", "to hearing", "hear"],
+    correctOption: "to hearing",
+    explanation: "La expresi�n formal \"look forward to\" siempre va seguida de un verbo terminado en \"-ing\" (hearing)."
   },
   {
     id: "M4",
-    wrongSentence: "He depends of his parents.",
-    options: ["of", "on", "from"],
-    correctOption: "on",
-    explanation: "El verbo 'depend' siempre va seguido de la preposición 'on', nunca 'of'."
+    wrongSentence: "It is vital for young people establish healthy habits early in life.",
+    options: ["establish", "to establish", "establishing"],
+    correctOption: "to establish",
+    explanation: "La estructura \"It is + adjetivo + for someone\" requiere que el siguiente verbo sea en infinitivo con \"to\" (to establish)."
   },
   {
     id: "M5",
-    wrongSentence: "I look forward to see you.",
-    options: ["to see", "seeing", "to seeing"],
-    correctOption: "to seeing",
-    explanation: "La expresión 'look forward to' siempre va seguida de un verbo con terminación '-ing'."
+    wrongSentence: "The regular exercise is crucial. It keeps you fit and maintains a healthy weight.",
+    options: ["The regular exercise", "Regular exercise", "A regular exercise"],
+    correctOption: "Regular exercise",
+    explanation: "Cuando se habla de conceptos generales o incontables en ingl�s (como el ejercicio en general), no se usa el art�culo definido \"The\"."
   },
   {
     id: "M6",
-    wrongSentence: "We went to the beach on the morning.",
-    options: ["on", "in", "at"],
-    correctOption: "in",
-    explanation: "Para las partes del día (morning, afternoon, evening) se usa la preposición 'in'."
+    wrongSentence: "Eat fruits and vegetables provides the necessary energy for study.",
+    options: ["Eat fruits", "Eating fruits", "To eating fruits"],
+    correctOption: "Eating fruits",
+    explanation: "Cuando un verbo funciona como el sujeto de una oraci�n, generalmente se usa en su forma de gerundio (terminaci�n -ing)."
   },
   {
     id: "M7",
-    wrongSentence: "I have been living here since five years.",
-    options: ["since", "for", "during"],
-    correctOption: "for",
-    explanation: "Se usa 'for' para periodos de tiempo (5 años). 'Since' se usa para un punto específico en el tiempo (since 2019)."
+    wrongSentence: "There is an ongoing debate about if practical life skills should be part of the school curriculum.",
+    options: ["about if", "about whether", "about that"],
+    correctOption: "about whether",
+    explanation: "Despu�s de preposiciones como \"about\" y en contextos formales, se usa \"whether\" en lugar de \"if\" para expresar alternativas."
   },
   {
     id: "M8",
-    wrongSentence: "She gave me a very good advice.",
-    options: ["a very good advice", "some very good advice", "very good advices"],
-    correctOption: "some very good advice",
-    explanation: "La palabra 'advice' es incontable en inglés, por lo que no puede llevar el artículo 'a/an' ni usarse en plural ('advices')."
+    wrongSentence: "I strongly believe it should to be taught to all students.",
+    options: ["should to be taught", "should be taught", "should taught"],
+    correctOption: "should be taught",
+    explanation: "Los verbos modales (como \"should\") van seguidos del verbo en infinitivo sin \"to\" (should be)."
   },
   {
     id: "M9",
-    wrongSentence: "I am very interested in learn English.",
-    options: ["learn", "learning", "to learn"],
-    correctOption: "learning",
-    explanation: "Después de una preposición (en este caso 'in'), el siguiente verbo siempre debe ir en forma '-ing'."
+    wrongSentence: "It allows young people to prepare fresh meals instead of rely on processed foods.",
+    options: ["instead of rely", "instead of relying", "instead to rely"],
+    correctOption: "instead of relying",
+    explanation: "Despu�s de cualquier preposici�n (como \"of\" en \"instead of\"), los verbos siempre deben ir en gerundio (-ing)."
   },
   {
     id: "M10",
-    wrongSentence: "This car is more fast than mine.",
-    options: ["more fast", "faster", "fastest"],
-    correctOption: "faster",
-    explanation: "Para adjetivos cortos (una sílaba) como 'fast', el comparativo se forma añadiendo '-er' (faster), no usando 'more'."
+    wrongSentence: "To be honest, it depends of my mood.",
+    options: ["depends of", "depends on", "depends from"],
+    correctOption: "depends on",
+    explanation: "El verbo \"depend\" siempre rige la preposici�n \"on\", nunca \"of\"."
   },
   {
     id: "M11",
-    wrongSentence: "Despite of the rain, we went out.",
-    options: ["Despite of", "In spite", "Despite"],
-    correctOption: "Despite",
-    explanation: "Se dice 'Despite' (sin of) o 'In spite of'. Nunca se combinan ('Despite of' es un error muy común)."
+    wrongSentence: "Could you please to check if anyone has turned my bag in?",
+    options: ["please to check", "please check", "please checking"],
+    correctOption: "please check",
+    explanation: "Despu�s del modal \"Could\" (Could you please...), el verbo principal debe ir en su forma base sin \"to\" (check)."
   },
   {
     id: "M12",
-    wrongSentence: "If I will have time, I will call you.",
-    options: ["will have", "have", "had"],
-    correctOption: "have",
-    explanation: "En la cláusula del 'If' (First Conditional), el verbo siempre va en presente simple, no en futuro con 'will'."
+    wrongSentence: "I was wondering how often do you meet in the club.",
+    options: ["how often do you meet", "how often you meet", "how often are you meeting"],
+    correctOption: "how often you meet",
+    explanation: "En preguntas indirectas (I was wondering...), no se usa el auxiliar (do/does) y el orden es sujeto + verbo (how often you meet)."
   },
   {
     id: "M13",
-    wrongSentence: "He don't like playing tennis.",
-    options: ["don't", "doesn't", "not"],
-    correctOption: "doesn't",
-    explanation: "Para he/she/it (3ra persona singular) el auxiliar negativo en presente es 'doesn't', no 'don't'."
+    wrongSentence: "In one hand, organizing an outdoor sports day has the advantage of promoting teamwork.",
+    options: ["In one hand", "On one hand", "At one hand"],
+    correctOption: "On one hand",
+    explanation: "La expresi�n fija correcta en ingl�s es \"On one hand...\" y \"On the other hand...\"."
   },
   {
     id: "M14",
-    wrongSentence: "I enjoy to read books in my free time.",
-    options: ["to read", "read", "reading"],
-    correctOption: "reading",
-    explanation: "El verbo 'enjoy' siempre debe ir seguido por un verbo en gerundio ('-ing')."
+    wrongSentence: "When considering different places to live, residing in a city center apartment offer major advantages.",
+    options: ["offer", "offers", "offering"],
+    correctOption: "offers",
+    explanation: "El sujeto de la oraci�n (residing in a city center apartment) es singular, por lo que el verbo debe llevar \"s\" en tercera persona (offers)."
   },
   {
     id: "M15",
-    wrongSentence: "She goes to the work by bus.",
-    options: ["to the work", "to work", "at work"],
-    correctOption: "to work",
-    explanation: "La expresión correcta es 'go to work' (sin el artículo 'the')."
+    wrongSentence: "The advantage of a dinner is that it allow everyone to share memories and say goodbye.",
+    options: ["it allow", "it allows", "it is allowing"],
+    correctOption: "it allows",
+    explanation: "El pronombre \"it\" es tercera persona del singular, por lo tanto el verbo en presente simple debe terminar en \"s\" (allows)."
   },
   {
     id: "M16",
-    wrongSentence: "Although it was raining, but we went to the park.",
-    options: ["but we went", "we went", "so we went"],
-    correctOption: "we went",
-    explanation: "Cuando usas el conector 'Although' (Aunque) al principio de la oración, no debes usar 'but' en la segunda parte."
+    wrongSentence: "Most people I know is becoming increasingly aware of climate change.",
+    options: ["is becoming", "are becoming", "becomes"],
+    correctOption: "are becoming",
+    explanation: "La palabra \"people\" es un sustantivo plural irregular en ingl�s, por lo que exige un verbo en plural (are)."
   },
   {
     id: "M17",
-    wrongSentence: "I will going to the cinema tonight.",
-    options: ["will going", "am going", "will to go"],
-    correctOption: "am going",
-    explanation: "Para planes futuros confirmados se usa 'am/is/are going to' o presente continuo. No se puede combinar 'will' con 'going'."
+    wrongSentence: "It also encourages citizens utilizing public transportation or bicycles instead.",
+    options: ["utilizing", "to utilize", "utilize"],
+    correctOption: "to utilize",
+    explanation: "El verbo \"encourage\" requiere la estructura: encourage + objeto + to + infinitivo (encourage citizens to utilize)."
   },
   {
     id: "M18",
-    wrongSentence: "My brother have a new car.",
-    options: ["have", "has", "having"],
-    correctOption: "has",
-    explanation: "Para la tercera persona del singular (he, she, it / my brother), el verbo to have cambia a 'has'."
+    wrongSentence: "If someone wants to visit our countryside, I highly recommend to travel to the Andean highlands.",
+    options: ["recommend to travel", "recommend traveling", "recommend travel"],
+    correctOption: "recommend traveling",
+    explanation: "El verbo \"recommend\" suele ir seguido de un gerundio (-ing) cuando no se menciona a una persona espec�fica antes del verbo (recommend traveling)."
   },
   {
     id: "M19",
-    wrongSentence: "We didn't went to the party.",
-    options: ["didn't went", "didn't go", "don't went"],
-    correctOption: "didn't go",
-    explanation: "Después del auxiliar negativo 'didn't', el verbo principal vuelve a su forma base (infinitivo), no se pone en pasado."
+    wrongSentence: "I strongly believe we should always remember historical turning points, such like national independence days.",
+    options: ["such like", "such as", "so as"],
+    correctOption: "such as",
+    explanation: "Para dar ejemplos se usa la expresi�n \"such as\" (tales como), no \"such like\"."
   },
   {
     id: "M20",
-    wrongSentence: "I am used to wake up early.",
-    options: ["wake", "waking", "woke"],
-    correctOption: "waking",
-    explanation: "La estructura 'to be used to' (estar acostumbrado a) siempre va seguida de un verbo terminado en '-ing'."
-  },
-  {
-    id: "M21",
-    wrongSentence: "The people in this town is very friendly.",
-    options: ["is", "are", "be"],
-    correctOption: "are",
-    explanation: "La palabra 'people' es un sustantivo plural irregular en inglés, por lo que el verbo siempre debe ir en plural (are)."
-  },
-  {
-    id: "M22",
-    wrongSentence: "I have 25 years old.",
-    options: ["have", "am", "have been"],
-    correctOption: "am",
-    explanation: "En inglés la edad no se 'tiene' (have), se 'es' (verb to be). Lo correcto es 'I am 25 years old'."
-  },
-  {
-    id: "M23",
-    wrongSentence: "She went to the cinema with a friend of her.",
-    options: ["her", "hers", "she"],
-    correctOption: "hers",
-    explanation: "Se debe usar el pronombre posesivo 'hers' (a friend of mine, a friend of his, a friend of hers)."
-  },
-  {
-    id: "M24",
-    wrongSentence: "I will see you in Monday.",
-    options: ["in", "on", "at"],
-    correctOption: "on",
-    explanation: "Para los días de la semana (Monday, Tuesday, etc.) siempre se utiliza la preposición 'on'."
-  },
-  {
-    id: "M25",
-    wrongSentence: "Can you explain me this rule?",
-    options: ["explain me", "explain to me", "explain for me"],
-    correctOption: "explain to me",
-    explanation: "El verbo 'explain' no puede ir seguido directamente del pronombre objeto. Debe usar 'to': explain (something) TO someone."
-  },
-  {
-    id: "M26",
-    wrongSentence: "I love listening music in my room.",
-    options: ["listening music", "listening to music", "to listen music"],
-    correctOption: "listening to music",
-    explanation: "El verbo 'listen' siempre va acompañado de la preposición 'to' cuando indicas qué estás escuchando (listen to music)."
-  },
-  {
-    id: "M27",
-    wrongSentence: "I like very much this city.",
-    options: ["like very much this", "like this city very much", "very much like this"],
-    correctOption: "like this city very much",
-    explanation: "En inglés, el verbo (like) y su objeto directo (this city) no deben separarse. 'Very much' se coloca al final de la oración."
-  },
-  {
-    id: "M28",
-    wrongSentence: "I hope to can travel next year.",
-    options: ["to can", "to be able to", "can"],
-    correctOption: "to be able to",
-    explanation: "El verbo modal 'can' no tiene infinitivo ('to can' no existe). Se debe usar su equivalente 'to be able to'."
-  },
-  {
-    id: "M29",
-    wrongSentence: "Can you say me the time, please?",
-    options: ["say me", "tell me", "talk me"],
-    correctOption: "tell me",
-    explanation: "Cuando mencionas a la persona a la que le hablas inmediatamente después del verbo, debes usar 'tell' (tell me), no 'say'."
-  },
-  {
-    id: "M30",
-    wrongSentence: "I was very boring at the party.",
-    options: ["boring", "bored", "boredom"],
-    correctOption: "bored",
-    explanation: "Los adjetivos terminados en '-ed' describen cómo te sientes (bored = aburrido). Los terminados en '-ing' describen lo que causa el sentimiento (boring = aburridor)."
-  },
-  {
-    id: "M31",
-    wrongSentence: "Let me tell you the history of how we met.",
-    options: ["history", "story", "tale"],
-    correctOption: "story",
-    explanation: "'History' se refiere a los hechos históricos (la materia escolar). Para anécdotas, cuentos o relatos personales se usa 'story'."
-  },
-  {
-    id: "M32",
-    wrongSentence: "I lost the bus this morning.",
-    options: ["lost", "missed", "failed"],
-    correctOption: "missed",
-    explanation: "No se puede 'perder' un transporte con el verbo 'lose' (que es para extraviar objetos). Para transportes y oportunidades se usa 'miss'."
-  },
-  {
-    id: "M33",
-    wrongSentence: "We are going to make a party next weekend.",
-    options: ["make", "have", "do"],
-    correctOption: "have",
-    explanation: "La colocación correcta en inglés es 'have a party' o 'throw a party', no 'make a party'."
-  },
-  {
-    id: "M34",
-    wrongSentence: "She looks like very happy today.",
-    options: ["looks like", "looks", "is looking like"],
-    correctOption: "looks",
-    explanation: "Se usa 'look' seguido directamente de un adjetivo (looks happy). 'Look like' se usa seguido de un sustantivo (looks like a doctor)."
-  },
-  {
-    id: "M35",
-    wrongSentence: "I knew my best friend when we were kids.",
-    options: ["knew", "met", "meet"],
-    correctOption: "met",
-    explanation: "Para hablar del momento en que conociste a alguien por primera vez, se usa el verbo 'meet' en pasado (met). 'Knew' significa que ya lo conocías (estado)."
-  },
-  {
-    id: "M36",
-    wrongSentence: "At the concert, we were 500 people.",
-    options: ["we were", "there were", "were"],
-    correctOption: "there were",
-    explanation: "Para hablar de la cantidad de personas en un lugar o grupo, se usa 'There were 500 people' (Había 500 personas) o 'There were 500 of us'."
-  },
-  {
-    id: "M37",
-    wrongSentence: "I need to buy another things for the trip.",
-    options: ["another", "other", "others"],
-    correctOption: "other",
-    explanation: "'Another' significa 'un/una otro(a)' y solo se usa con sustantivos singulares (another thing). Para plurales se usa 'other' (other things)."
-  },
-  {
-    id: "M38",
-    wrongSentence: "I have a very good new for you.",
-    options: ["new", "news", "notice"],
-    correctOption: "news",
-    explanation: "La palabra 'news' (noticias) es incontable en inglés, por lo que siempre termina en 's' pero toma verbo en singular. No existe 'a new'."
-  },
-  {
-    id: "M39",
-    wrongSentence: "I haven't seen her since a long time.",
-    options: ["since", "for", "in"],
-    correctOption: "for",
-    explanation: "Como 'a long time' es un periodo de duración y no un punto fijo en el tiempo, debe usarse 'for' (for a long time)."
-  },
-  {
-    id: "M40",
-    wrongSentence: "It is very important study every day.",
-    options: ["study", "to study", "studying"],
-    correctOption: "to study",
-    explanation: "Después de expresiones impersonales como 'It is + adjetivo', el verbo que sigue debe ir en infinitivo con 'to' (to study)."
-  },
-  {
-    id: "M41",
-    wrongSentence: "I suggest to go to that new Italian restaurant.",
-    options: ["to go", "going", "we going"],
-    correctOption: "going",
-    explanation: "El verbo 'suggest' nunca va seguido de infinitivo con 'to'. Puede ir seguido de un gerundio (-ing) o de una cláusula con 'that'."
-  },
-  {
-    id: "M42",
-    wrongSentence: "I need that you help me with this box.",
-    options: ["that you help", "you to help", "you help"],
-    correctOption: "you to help",
-    explanation: "En inglés no se dice 'need that someone does something'. La estructura correcta es verbo + objeto + infinitivo: 'need YOU TO HELP me'."
-  },
-  {
-    id: "M43",
-    wrongSentence: "In the end of the movie, the hero dies.",
-    options: ["In", "At", "On"],
-    correctOption: "At",
-    explanation: "Para hablar del momento final de algo (libro, película, mes), se usa 'At the end (of)'. 'In the end' significa 'finalmente' o 'a fin de cuentas'."
-  },
-  {
-    id: "M44",
-    wrongSentence: "Can you remember me to call my mom?",
-    options: ["remember me", "remind me", "record me"],
-    correctOption: "remind me",
-    explanation: "El verbo 'remember' es acordarse uno mismo. Cuando quieres que alguien te haga acordar de algo, el verbo es 'remind' (recordar a alguien)."
-  },
-  {
-    id: "M45",
-    wrongSentence: "The climate here is very nice.",
-    options: ["climate", "weather", "time"],
-    correctOption: "weather",
-    explanation: "'Climate' se refiere al clima general de una región a largo plazo. Para hablar de cómo está el día hoy (sol, lluvia), se usa 'weather'."
-  },
-  {
-    id: "M46",
-    wrongSentence: "She wants to have success in her career.",
-    options: ["have success", "be successful", "make success"],
-    correctOption: "be successful",
-    explanation: "En inglés raramente se dice 'have success' (tener éxito). Lo natural es usar el adjetivo con el verbo to be: 'to be successful'."
-  },
-  {
-    id: "M47",
-    wrongSentence: "Actually, I am living in Madrid.",
-    options: ["Actually", "Currently", "Realmente"],
-    correctOption: "Currently",
-    explanation: "'Actually' no significa 'actualmente', significa 'de hecho' o 'en realidad' (es un falso amigo). Para decir 'actualmente' se usa 'Currently' o 'Nowadays'."
-  },
-  {
-    id: "M48",
-    wrongSentence: "He won the race in despite of his injury.",
-    options: ["in despite of", "in spite of", "despite of"],
-    correctOption: "in spite of",
-    explanation: "Las únicas formas correctas son 'despite' (sin of) o 'in spite of' (con in y con of). 'In despite of' es una mezcla incorrecta."
-  },
-  {
-    id: "M49",
-    wrongSentence: "This is the first time I eat sushi.",
-    options: ["eat", "have eaten", "ate"],
-    correctOption: "have eaten",
-    explanation: "Con la expresión 'It is / This is the first time...', siempre se usa el Present Perfect (have eaten), nunca el presente o pasado simple."
-  },
-  {
-    id: "M50",
-    wrongSentence: "I am thinking to buy a new laptop.",
-    options: ["to buy", "of buying", "in buying"],
-    correctOption: "of buying",
-    explanation: "El verbo 'think' cuando significa planear o considerar algo, va seguido de la preposición 'of' o 'about' + el verbo en '-ing' (thinking of buying)."
+    wrongSentence: "While reflecting on past experiences helps us learn from our mistakes, obsessing over them hold us back.",
+    options: ["hold us back", "holds us back", "holding us back"],
+    correctOption: "holds us back",
+    explanation: "El sujeto \"obsessing over them\" (obsesionarse con ellos) act�a como una idea singular (it), por lo que el verbo debe llevar \"s\" (holds)."
   }
 ];
 

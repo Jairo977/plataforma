@@ -135,6 +135,7 @@ function ScoreRow({ label, score, comment }: { label: string; score: number; com
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 export default function SpeakingPage() {
+  const [activeTab, setActiveTab] = useState<"simulator" | "pronunciation">("simulator");
   const [exercises, setExercises] = useState<BankQuestion[]>([]);
   const [exIdx, setExIdx] = useState(0);
   const [status, setStatus] = useState<"idle" | "preparing" | "recording" | "evaluating" | "finished">("idle");
@@ -224,11 +225,32 @@ export default function SpeakingPage() {
 
   if (exercises.length === 0) return <div className="p-8 text-center text-white">Cargando ejercicios...</div>;
 
+  const pronunciationSentences = exercises.flatMap(q => 
+    (q.subQuestions || []).map(sq => sq.modelExample).filter(Boolean)
+  ).filter(Boolean) as string[];
+
   return (
     <>
       <Navbar />
       <main className={styles.main}>
         <div className="container container-lg">
+          
+          <div style={{ display: "flex", gap: "1rem", marginBottom: "2rem", borderBottom: "1px solid var(--border-color)", paddingBottom: "1rem" }}>
+            <button 
+              className={`btn ${activeTab === "simulator" ? "btn-primary" : "btn-ghost"}`}
+              onClick={() => setActiveTab("simulator")}
+            >
+              Simulador OTE
+            </button>
+            <button 
+              className={`btn ${activeTab === "pronunciation" ? "btn-primary" : "btn-ghost"}`}
+              onClick={() => setActiveTab("pronunciation")}
+            >
+              Mini-Juego: Reto de Pronunciación
+            </button>
+          </div>
+
+          {activeTab === "simulator" ? (
           <div className={styles.layoutGrid}>
             
             {/* ── LEFT COLUMN ── */}
@@ -443,10 +465,27 @@ export default function SpeakingPage() {
               </div>
             )}
           </div>
+          </div>
+          </div>
+          ) : (
+            <div style={{ display: "block" }}>
+              <div className={styles.header} style={{ marginBottom: "2rem" }}>
+                <h2 className={styles.heading}>Reto de Pronunciación</h2>
+                <p className="text-muted">Lee las frases en voz alta. La IA validará qué palabras pronuncias correctamente (en verde) y cuáles debes mejorar (tachadas en rojo).</p>
+              </div>
+              
+              <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+                {pronunciationSentences.map((sentence, idx) => (
+                  <div key={idx} className={styles.modelCard} style={{ padding: "1.5rem" }}>
+                    <p className={styles.modelText} style={{ marginBottom: "1rem", fontSize: "1.1rem" }}>"{sentence}"</p>
+                    <SpeakingEvaluator expectedText={sentence} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
-      </div>
-    </div>
-  </main>
-</>
+      </main>
+    </>
   );
 }

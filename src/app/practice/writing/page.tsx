@@ -8,7 +8,7 @@ import {
   BookMarked, Target, Clock, ListChecks, RefreshCw
 } from "lucide-react";
 import styles from "./writing.module.css";
-import { generatePracticeSession, BankQuestion } from "@/lib/question-bank";
+import { generatePracticeSession, generateMistakesSession, BankQuestion, WritingMistake } from "@/lib/question-bank";
 
 const COMMON_MISTAKES = [
   "No responder todos los prompts: si el enunciado pide 3 cosas, las 3 deben aparecer claramente.",
@@ -110,15 +110,22 @@ function ChecklistItem({ label }: { label: string }) {
 }
 
 export default function WritingPage() {
+  const [activeTab, setActiveTab] = useState<"simulator" | "mistakes">("simulator");
   const [exercises, setExercises] = useState<BankQuestion[]>([]);
+  const [mistakes, setMistakes] = useState<WritingMistake[]>([]);
   const [exIdx, setExIdx] = useState(0);
   const [text, setText] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isEvaluating, setIsEvaluating] = useState(false);
   const [evaluation, setEvaluation] = useState<any>(null);
+  const [mistakeAnswers, setMistakeAnswers] = useState<Record<string, string>>({});
+  const [showMistakeFeedback, setShowMistakeFeedback] = useState<Record<string, boolean>>({});
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  useEffect(() => { setExercises(generatePracticeSession("writing")); }, []);
+  useEffect(() => { 
+    setExercises(generatePracticeSession("writing")); 
+    setMistakes(generateMistakesSession());
+  }, []);
 
   if (exercises.length === 0) return <div className="p-8 text-center text-white">Cargando ejercicios...</div>;
 
@@ -153,6 +160,23 @@ export default function WritingPage() {
       <Navbar />
       <main className={styles.main}>
         <div className="container container-lg">
+          
+          <div style={{ display: "flex", gap: "1rem", marginBottom: "2rem", borderBottom: "1px solid var(--border-color)", paddingBottom: "1rem" }}>
+            <button 
+              className={`btn ${activeTab === "simulator" ? "btn-primary" : "btn-ghost"}`}
+              onClick={() => setActiveTab("simulator")}
+            >
+              Simulador OTE
+            </button>
+            <button 
+              className={`btn ${activeTab === "mistakes" ? "btn-primary" : "btn-ghost"}`}
+              onClick={() => setActiveTab("mistakes")}
+            >
+              Mini-Juego: Find the Mistake
+            </button>
+          </div>
+
+          {activeTab === "simulator" ? (
           <div className={styles.layoutGrid}>
 
             {/* ── LEFT COLUMN ── */}
@@ -367,10 +391,79 @@ export default function WritingPage() {
               </div>
             )}
           </div>
+          </div>
+          </div>
+          ) : (
+            <div style={{ display: "block" }}>
+              <div className={styles.header} style={{ marginBottom: "2rem" }}>
+                <h2 className={styles.heading}>Find the Mistake</h2>
+                <p className="text-muted">Encuentra el error en cada oración. Selecciona la opción correcta para corregirlo.</p>
+              </div>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+                {mistakes.map((m, idx) => (
+                  <div key={m.id} className={styles.exerciseCard} style={{ padding: "1.5rem" }}>
+                    <p style={{ fontWeight: 500, fontSize: "1.1rem", marginBottom: "1rem" }}>
+                      {idx + 1}. {m.wrongSentence}
+                    </p>
+                    
+                    <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginBottom: "1rem" }}>
+                      {m.options.map((opt) => (
+                        <button
+                          key={opt}
+                          className={`btn ${mistakeAnswers[m.id] === opt ? "btn-primary" : "btn-secondary"}`}
+                          onClick={() => {
+                            if (showMistakeFeedback[m.id]) return;
+                            setMistakeAnswers({ ...mistakeAnswers, [m.id]: opt });
+                          }}
+                          disabled={showMistakeFeedback[m.id]}
+                        >
+                          {opt}
+                        </button>
+                      ))}
+                    </div>
+
+                    {!showMistakeFeedback[m.id] ? (
+                      <button 
+                        className="btn btn-primary"
+                        onClick={() => {
+                          if (mistakeAnswers[m.id]) {
+                            setShowMistakeFeedback({ ...showMistakeFeedback, [m.id]: true });
+                          }
+                        }}
+                        disabled={!mistakeAnswers[m.id]}
+                      >
+                        Comprobar
+                      </button>
+                    ) : (
+                      <div className={styles.feedbackBox} style={{ marginTop: "1rem", padding: "1rem", backgroundColor: mistakeAnswers[m.id] === m.correctOption ? "rgba(74, 222, 128, 0.1)" : "rgba(239, 68, 68, 0.1)", border: `1px solid ${mistakeAnswers[m.id] === m.correctOption ? "#4ade80" : "#ef4444"}` }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem", color: mistakeAnswers[m.id] === m.correctOption ? "#4ade80" : "#ef4444", fontWeight: 600 }}>
+                          {mistakeAnswers[m.id] === m.correctOption ? <CheckCircle2 size={18} /> : <AlertTriangle size={18} />}
+                          {mistakeAnswers[m.id] === m.correctOption ? "¡Correcto!" : `Incorrecto. La respuesta era: ${m.correctOption}`}
+                        </div>
+                        <p style={{ fontSize: "0.95rem" }}>{m.explanation}</p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              
+              <button 
+                className="btn btn-secondary" 
+                style={{ width: "100%", marginTop: "2rem" }}
+                onClick={() => { 
+                  setMistakes(generateMistakesSession()); 
+                  setMistakeAnswers({}); 
+                  setShowMistakeFeedback({}); 
+                }}
+              >
+                <RefreshCw size={14} style={{ display: "inline", marginRight: "6px" }} />
+                Cargar 5 nuevas frases
+              </button>
+            </div>
+          )}
         </div>
-      </div>
-    </div>
-  </main>
+      </main>
 </>
   );
 }

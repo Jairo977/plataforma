@@ -1902,7 +1902,163 @@ export function generatePracticeSession(module: "listening" | "reading" | "writi
   if (module === "listening" && !part) {
     const studySet = filtered.filter(q => q.id.startsWith("L-STUDY"));
     const extra = filtered.filter(q => !q.id.startsWith("L-STUDY"));
-    return [...studySet, ...shuffle(extra)];
+    const randomExtra = shuffle(extra).slice(0, Math.max(0, 10 - studySet.length));
+    return [...studySet, ...randomExtra];
   }
-  return shuffle(filtered);
+  return shuffle(filtered).slice(0, Math.min(filtered.length, 10));
+}
+
+export type WritingMistake = {
+  id: string;
+  wrongSentence: string;
+  options: string[];
+  correctOption: string;
+  explanation: string;
+};
+
+export const writingMistakesBank: WritingMistake[] = [
+  {
+    id: "M1",
+    wrongSentence: "I want to win more money at my new job.",
+    options: ["win", "earn", "take"],
+    correctOption: "earn",
+    explanation: "Se usa 'earn' (o 'gain' en algunos contextos) cuando hablas de ganar un salario o dinero por trabajo. 'Win' se usa para ganar una competencia, premio o la lotería."
+  },
+  {
+    id: "M2",
+    wrongSentence: "She did a big mistake on the exam.",
+    options: ["did", "made", "had"],
+    correctOption: "made",
+    explanation: "En inglés se dice 'make a mistake', no 'do a mistake'."
+  },
+  {
+    id: "M3",
+    wrongSentence: "I am agree with you.",
+    options: ["am agree", "agree", "have agree"],
+    correctOption: "agree",
+    explanation: "El verbo es 'agree' por sí solo, no se usa con el verbo to be. Lo correcto es 'I agree with you'."
+  },
+  {
+    id: "M4",
+    wrongSentence: "He depends of his parents.",
+    options: ["of", "on", "from"],
+    correctOption: "on",
+    explanation: "El verbo 'depend' siempre va seguido de la preposición 'on', nunca 'of'."
+  },
+  {
+    id: "M5",
+    wrongSentence: "I look forward to see you.",
+    options: ["to see", "seeing", "to seeing"],
+    correctOption: "to seeing",
+    explanation: "La expresión 'look forward to' siempre va seguida de un verbo con terminación '-ing'."
+  },
+  {
+    id: "M6",
+    wrongSentence: "We went to the beach on the morning.",
+    options: ["on", "in", "at"],
+    correctOption: "in",
+    explanation: "Para las partes del día (morning, afternoon, evening) se usa la preposición 'in'."
+  },
+  {
+    id: "M7",
+    wrongSentence: "I have been living here since five years.",
+    options: ["since", "for", "during"],
+    correctOption: "for",
+    explanation: "Se usa 'for' para periodos de tiempo (5 años). 'Since' se usa para un punto específico en el tiempo (since 2019)."
+  },
+  {
+    id: "M8",
+    wrongSentence: "She gave me a very good advice.",
+    options: ["a very good advice", "some very good advice", "very good advices"],
+    correctOption: "some very good advice",
+    explanation: "La palabra 'advice' es incontable en inglés, por lo que no puede llevar el artículo 'a/an' ni usarse en plural ('advices')."
+  },
+  {
+    id: "M9",
+    wrongSentence: "I am very interested in learn English.",
+    options: ["learn", "learning", "to learn"],
+    correctOption: "learning",
+    explanation: "Después de una preposición (en este caso 'in'), el siguiente verbo siempre debe ir en forma '-ing'."
+  },
+  {
+    id: "M10",
+    wrongSentence: "This car is more fast than mine.",
+    options: ["more fast", "faster", "fastest"],
+    correctOption: "faster",
+    explanation: "Para adjetivos cortos (una sílaba) como 'fast', el comparativo se forma añadiendo '-er' (faster), no usando 'more'."
+  },
+  {
+    id: "M11",
+    wrongSentence: "Despite of the rain, we went out.",
+    options: ["Despite of", "In spite", "Despite"],
+    correctOption: "Despite",
+    explanation: "Se dice 'Despite' (sin of) o 'In spite of'. Nunca se combinan ('Despite of' es un error muy común)."
+  },
+  {
+    id: "M12",
+    wrongSentence: "If I will have time, I will call you.",
+    options: ["will have", "have", "had"],
+    correctOption: "have",
+    explanation: "En la cláusula del 'If' (First Conditional), el verbo siempre va en presente simple, no en futuro con 'will'."
+  },
+  {
+    id: "M13",
+    wrongSentence: "He don't like playing tennis.",
+    options: ["don't", "doesn't", "not"],
+    correctOption: "doesn't",
+    explanation: "Para he/she/it (3ra persona singular) el auxiliar negativo en presente es 'doesn't', no 'don't'."
+  },
+  {
+    id: "M14",
+    wrongSentence: "I enjoy to read books in my free time.",
+    options: ["to read", "read", "reading"],
+    correctOption: "reading",
+    explanation: "El verbo 'enjoy' siempre debe ir seguido por un verbo en gerundio ('-ing')."
+  },
+  {
+    id: "M15",
+    wrongSentence: "She goes to the work by bus.",
+    options: ["to the work", "to work", "at work"],
+    correctOption: "to work",
+    explanation: "La expresión correcta es 'go to work' (sin el artículo 'the')."
+  },
+  {
+    id: "M16",
+    wrongSentence: "Although it was raining, but we went to the park.",
+    options: ["but we went", "we went", "so we went"],
+    correctOption: "we went",
+    explanation: "Cuando usas el conector 'Although' (Aunque) al principio de la oración, no debes usar 'but' en la segunda parte."
+  },
+  {
+    id: "M17",
+    wrongSentence: "I will going to the cinema tonight.",
+    options: ["will going", "am going", "will to go"],
+    correctOption: "am going",
+    explanation: "Para planes futuros confirmados se usa 'am/is/are going to' o presente continuo. No se puede combinar 'will' con 'going'."
+  },
+  {
+    id: "M18",
+    wrongSentence: "My brother have a new car.",
+    options: ["have", "has", "having"],
+    correctOption: "has",
+    explanation: "Para la tercera persona del singular (he, she, it / my brother), el verbo to have cambia a 'has'."
+  },
+  {
+    id: "M19",
+    wrongSentence: "We didn't went to the party.",
+    options: ["didn't went", "didn't go", "don't went"],
+    correctOption: "didn't go",
+    explanation: "Después del auxiliar negativo 'didn't', el verbo principal vuelve a su forma base (infinitivo), no se pone en pasado."
+  },
+  {
+    id: "M20",
+    wrongSentence: "I am used to wake up early.",
+    options: ["wake", "waking", "woke"],
+    correctOption: "waking",
+    explanation: "La estructura 'to be used to' (estar acostumbrado a) siempre va seguida de un verbo terminado en '-ing'."
+  }
+];
+
+export function generateMistakesSession(): WritingMistake[] {
+  return writingMistakesBank.sort(() => 0.5 - Math.random()).slice(0, 5);
 }

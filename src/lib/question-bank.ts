@@ -1902,7 +1902,7 @@ export function generatePracticeSession(module: "listening" | "reading" | "writi
   if (module === "listening" && !part) {
     const studySet = filtered.filter(q => q.id.startsWith("L-STUDY"));
     const extra = filtered.filter(q => !q.id.startsWith("L-STUDY"));
-    return [...studySet, ...pick(extra, Math.max(0, 10 - studySet.length))];
+    return [...studySet, ...shuffle(extra)];
   }
-  return shuffle(filtered).slice(0, Math.min(filtered.length, 10));
+  return shuffle(filtered);
 }

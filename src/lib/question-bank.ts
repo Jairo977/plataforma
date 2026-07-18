@@ -1787,6 +1787,59 @@ export const speakingBank: BankQuestion[] = [
       { question: "How do you feel about spending time on your own?" },
       { question: "Should schools organize more extracurricular activities for students?" }
     ]
+  },
+  // --- NEW MODEL ANSWERS (B1/B2 Standard) ---
+  { id: "SP1-009", module: "speaking", part: 1, difficulty: "B2", type: "voice", topic: "Learning Languages", partLabel: "Parte 1: Entrevista (10-20 seg)", timeSeconds: 15,
+    prompt: "I'm going to ask you some questions about learning languages. Can you describe an English lesson that you really enjoyed?",
+    modelExample: "Well, I remember a lesson where we simulated a live debate about technology. It was highly interactive because we had to defend random points of view using new vocabulary, which made it both challenging and extremely fun." },
+  { id: "SP1-010", module: "speaking", part: 1, difficulty: "B2", type: "voice", topic: "Learning Languages", partLabel: "Parte 1: Entrevista (10-20 seg)", timeSeconds: 15,
+    prompt: "Tell me what you do to practice English outside the classroom.",
+    modelExample: "Actually, I try to immerse myself in the language by configuring all my software and devices in English. Additionally, I build custom side projects using technical documentation written exclusively in English, which expands my vocabulary daily." },
+  { id: "SP1-011", module: "speaking", part: 1, difficulty: "B1", type: "voice", topic: "Holidays", partLabel: "Parte 1: Entrevista (10-20 seg)", timeSeconds: 15,
+    prompt: "Tell me about an important national holiday in your country.",
+    modelExample: "An essential holiday here is Independence Day. People usually gather with family, attend local parades in the city center, and enjoy traditional dishes. It’s a meaningful day to celebrate our history and culture." },
+  { id: "SP1-012", module: "speaking", part: 1, difficulty: "B1", type: "voice", topic: "Free Time", partLabel: "Parte 1: Entrevista (10-20 seg)", timeSeconds: 15,
+    prompt: "I'm going to ask you some questions about your free time. Do you prefer to spend your free time alone or do you prefer to spend your free time with other people?",
+    modelExample: "To be honest, it depends on my mood, but I generally prefer spending my free time with other people. I really enjoy sharing a good conversation or collaborating on ideas with friends, though I occasionally need some quiet time to code alone." },
+  { id: "SP2-012", module: "speaking", part: 2, difficulty: "B2", type: "voice", topic: "Dentist Appointment", partLabel: "Parte 2: Mensaje de voz (40 seg)", timeSeconds: 40,
+    context: "You have an appointment with a dentist this afternoon, but you cannot go to the appointment.",
+    prompt: "Leave a voicemail message for the dentist and explain who you are. Say why you cannot go to the appointment. Suggest a time for another appointment.",
+    modelExample: "Hello, this is Jairo Ruiz. I'm calling because I have an appointment with the dentist this afternoon at 4 PM, but unfortunately, an urgent work issue has just come up and I won't be able to make it. I do apologize for the short notice. Would it be possible to reschedule it for next Thursday morning around 10 AM? Please let me know if that works for you. Thank you." },
+  { id: "SP2-013", module: "speaking", part: 2, difficulty: "B2", type: "voice", topic: "Lost Bag", partLabel: "Parte 2: Mensaje de voz (40 seg)", timeSeconds: 40,
+    context: "You recently went to a library. You think you left your bag in the library.",
+    prompt: "Leave a voicemail message for the library manager and explain who you are. Describe your bag and what's in it. Say what you would like the library manager to do.",
+    modelExample: "Hello, my name is Jairo Ruiz. I visited the library this morning and I believe I left my bag near the computer section. It is a dark gray tech backpack, and inside it, there is a silver laptop along with some electronics tools. Could you please check if anyone has turned it in? You can contact me back on this number. I'd appreciate your help." },
+  { id: "SP2-014", module: "speaking", part: 2, difficulty: "B2", type: "voice", topic: "Clean-up Club", partLabel: "Parte 2: Mensaje de voz (40 seg)", timeSeconds: 40,
+    context: "You heard an interview on the radio with the organizer of a club which helps to keep your local area clean. You would like to join the club.",
+    prompt: "Leave a voicemail message for the club organizer and explain why you want to join the club. Ask some questions about the club. Say how you could help.",
+    modelExample: "Hello, I'm calling because I recently heard the interview on the radio regarding your local clean-up club, and I would love to join your team. I’m really concerned about looking after our environment. I was wondering how often you meet and if there are any specific requirements to register. I could easily help with organizing weekend events or managing your website. Hope to hear from you soon!" },
+  { id: "SP3-010", module: "speaking", part: 3, difficulty: "B2", type: "voice", topic: "New Students Activity", partLabel: "Parte 3: Monólogo comparativo (1 min)", timeSeconds: 60,
+    context: "Your English school is planning to have an activity for its new students to get to know each other. The school has asked you for ideas.",
+    prompt: "Choose two photographs (e.g. Outdoor Sports vs. Board Games Cafe). Tell your class about the advantages and disadvantages of these two activities.",
+    images: ["https://images.unsplash.com/photo-1526676037777-05a232554f77?w=600&h=400&fit=crop", "https://images.unsplash.com/photo-1610890716171-6b1bb98ffaed?w=600&h=400&fit=crop"],
+    modelExample: "In this task, I'll compare two activities for new students. On one hand, organizing an outdoor sports day has the advantage of promoting teamwork and breaking the ice quickly through physical activity. However, a drawback is that it depends entirely on the weather, and some students might not enjoy sports. On the other hand, meeting at a board games cafe provides a more relaxed environment where people can talk comfortably. The disadvantage is that it's a quieter setup, so introverted students might find it harder to mingle. In my view, the games cafe is better as it ensures everyone can participate regardless of their physical fitness." },
+  { id: "SP3-011", module: "speaking", part: 3, difficulty: "B2", type: "voice", topic: "Places to Live", partLabel: "Parte 3: Monólogo comparativo (1 min)", timeSeconds: 60,
+    context: "You are going to give a talk to your English class about different places where people live.",
+    prompt: "Choose two photographs (e.g. City Center Apartment vs. Countryside House). Tell your class what the advantages and disadvantages of living in these different places might be.",
+    images: ["https://images.unsplash.com/photo-1449844908441-8829872d2607?w=600&h=400&fit=crop", "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop"],
+    modelExample: "When considering different places to live, residing in a city center apartment offers major advantages, such as being close to public transport, offices, and entertainment. Nevertheless, the main disadvantage is the constant noise and higher cost of living. In contrast, a house in the countryside provides a peaceful environment surrounded by nature, which is excellent for mental health. On the downside, commuting to work or finding good services can be quite difficult. Personally, while the countryside is beautiful, I believe the convenience of the city center is preferable for young professionals." },
+  { id: "SP3-012", module: "speaking", part: 3, difficulty: "B2", type: "voice", topic: "Remembering a Teacher", partLabel: "Parte 3: Monólogo comparativo (1 min)", timeSeconds: 60,
+    context: "Your favorite English teacher is going to leave your English school. You would like your class to do something with your teacher to help remember your time together.",
+    prompt: "Choose two photographs (e.g. Class Dinner vs. Photo Album Creation). Tell your class about the advantages and disadvantages of doing these activities to help you remember your time with your teacher.",
+    images: ["https://images.unsplash.com/photo-1555244162-803834f70033?w=600&h=400&fit=crop", "https://images.unsplash.com/photo-1588661642277-2e1189311dc4?w=600&h=400&fit=crop"],
+    modelExample: "To celebrate our time together with our teacher, we could choose between a farewell class dinner or creating a custom photo album. The advantage of a dinner is that it allows everyone to share memories and say goodbye in a festive, cheerful atmosphere. The downside is that it's temporary and might be expensive for some. Conversely, compiling a photo album is a long-lasting gift that the teacher can keep forever, which is deeply sentimental. However, it requires a lot of time and coordination to collect all the pictures. Ultimately, I think combining a small dinner with the photo album presentation would be the perfect balance." },
+  { id: "SP4-007", module: "speaking", part: 4, difficulty: "B2", type: "voice", topic: "Environment & Urban Life", partLabel: "Parte 4: Follow-up questions", timeSeconds: 30, prompt: "Your talk was about the environment and living in cities.",
+    subQuestions: [
+      { question: "Your talk was about looking after the environment. Tell me about what people you know do to look after the environment.", modelExample: "Most people I know are becoming increasingly aware of climate change. For instance, my friends and family actively recycle plastics, use reusable bags when shopping, and try to minimize energy consumption at home by turning off unnecessary appliances." },
+      { question: "In some cities, people have to pay money to drive their car into the city center. Is this a good thing?", modelExample: "From my perspective, it is a fantastic policy. Implementing a congestion charge discourages unnecessary car usage, which significantly reduces air pollution and traffic jams. It also encourages citizens to utilize public transportation or bicycles instead." },
+      { question: "If someone wanted to visit a beautiful place in the countryside in your country, what advice would you give?", modelExample: "If someone wants to visit our countryside, I highly recommend traveling to the Andean highlands, like the areas surrounding Riobamba. My main advice would be to pack warm, layered clothing due to the unpredictable weather, and to make sure they try the local traditional food, which is exceptional." }
+    ]
+  },
+  { id: "SP4-008", module: "speaking", part: 4, difficulty: "B2", type: "voice", topic: "Memories and Time", partLabel: "Parte 4: Follow-up questions", timeSeconds: 30, prompt: "Your talk was about remembering an important event.",
+    subQuestions: [
+      { question: "What events are important to remember?", modelExample: "I strongly believe we should always remember historical turning points, such as national independence days, because they shape our identity. On a personal level, family milestones and achievements like graduations are equally crucial to keep in mind." },
+      { question: "Some people say that people spend too much time thinking about the past and not enough time thinking about the future. What do you think?", modelExample: "I completely agree with that statement. While reflecting on past experiences helps us learn from our mistakes, obsessing over them holds us back. We should focus more on building future infrastructure, expanding our skills, and planning ahead." }
+    ]
   }
 ];
 
@@ -1807,28 +1860,26 @@ function pick<T>(arr: T[], n: number): T[] {
   return shuffle(arr).slice(0, n);
 }
 
-export interface ExamSession {
-  listening: BankQuestion[];
-  reading: BankQuestion[];
+export interface AdaptiveExamSession {
+  listening: { B1: BankQuestion[]; B2: BankQuestion[] };
+  reading: { B1: BankQuestion[]; B2: BankQuestion[] };
   writing: BankQuestion[];
   speaking: BankQuestion[];
 }
 
-export function generateExamSession(): ExamSession {
-  const listening = [
-    ...pick(listeningBank.filter(q => q.part === 1), 5),
-    ...pick(listeningBank.filter(q => q.part === 2), 5),
-    ...pick(listeningBank.filter(q => q.part === 3), 5),
-    ...pick(listeningBank.filter(q => q.part === 4), 5),
-  ];
+export function generateExamSession(): AdaptiveExamSession {
+  // Adaptive pools: we shuffle and return the whole bank filtered by difficulty
+  const listening = {
+    B1: shuffle(listeningBank.filter(q => q.difficulty === "B1")),
+    B2: shuffle(listeningBank.filter(q => q.difficulty === "B2"))
+  };
 
-  const reading = [
-    ...pick(readingBank.filter(q => q.part === 1), 6),
-    ...pick(readingBank.filter(q => q.part === 2), 6),
-    ...pick(readingBank.filter(q => q.part === 3), 6),
-    ...pick(readingBank.filter(q => q.part === 4), 4),
-  ];
+  const reading = {
+    B1: shuffle(readingBank.filter(q => q.difficulty === "B1")),
+    B2: shuffle(readingBank.filter(q => q.difficulty === "B2"))
+  };
 
+  // Static modules
   const writing = [
     ...pick(writingBank.filter(q => q.part === 1), 1),
     ...pick(writingBank.filter(q => q.part === 2), 1),

@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import styles from "./speaking.module.css";
 import { generatePracticeSession, BankQuestion } from "@/lib/question-bank";
+import SpeakingEvaluator from "@/components/SpeakingEvaluator";
 
 // ── Score bar helper ──────────────────────────────────────────────────────────
 function scoreColor(score: number): string {
@@ -104,6 +105,10 @@ function ModelCard({ example, translation, topic }: { example: string; translati
           <div className={styles.adaptNote}>
             <Edit3 size={15} style={{ flexShrink: 0 }} />
             <span>Sustituye los detalles personales del ejemplo por los tuyos propios.</span>
+          </div>
+          
+          <div style={{ marginTop: "1.5rem" }}>
+            <SpeakingEvaluator expectedText={example} />
           </div>
         </div>
       )}

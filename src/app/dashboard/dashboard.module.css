@@ -1,0 +1,302 @@
+.main {
+  min-height: 100vh;
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 2.25rem;
+  margin-bottom: 1.6rem;
+}
+
+.heading {
+  max-width: 760px;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-weight: 860;
+}
+
+.overallCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: center;
+  padding: 1.45rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(242,184,75,0.22);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(242,184,75,0.12), rgba(255,255,255,0.035));
+  box-shadow: var(--shadow-sm);
+}
+
+.overallLeft { min-width: 0; }
+
+.overallLabel {
+  margin-bottom: 0.45rem;
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.overallScore {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.overallNum {
+  color: var(--gold-300);
+  font-size: clamp(2.4rem, 5vw, 3.7rem);
+  font-weight: 900;
+  line-height: 0.95;
+}
+
+.overallSub {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+.overallStats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(5.5rem, auto));
+  gap: 0.75rem;
+}
+
+.stat {
+  padding: 0.85rem;
+  border: 1px solid var(--oxford-border);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.045);
+  text-align: center;
+}
+
+.statNum {
+  display: block;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 860;
+}
+
+.statLabel {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  line-height: 1.25;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.sectionTitle h2 {
+  font-size: 1.12rem;
+}
+
+.modulesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.35rem;
+}
+
+.moduleCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 15rem;
+  padding: 1.25rem;
+  border: 1px solid var(--oxford-border);
+  border-radius: 14px;
+  background: var(--gradient-card);
+  color: inherit;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  animation: fadeIn 0.45s ease both;
+}
+
+.moduleCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--oxford-border-hover);
+  background: rgba(255,255,255,0.07);
+}
+
+.module_speaking:hover { border-color: rgba(184,156,255,0.34); }
+.module_writing:hover { border-color: rgba(94,224,166,0.34); }
+.module_listening:hover { border-color: rgba(255,141,134,0.34); }
+.module_reading:hover { border-color: rgba(116,184,255,0.34); }
+.module_uoe:hover { border-color: rgba(167,139,250,0.34); }
+
+.moduleTop {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.moduleInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.moduleMeta {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.moduleProgressLabel {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.progressText {
+  color: var(--text-muted);
+  font-size: 0.74rem;
+}
+
+.progressNum {
+  color: var(--gold-300);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.moduleTip {
+  flex: 1;
+  padding: 0.75rem 0.85rem;
+  border-left: 2px solid rgba(242,184,75,0.38);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.045);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.moduleFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.lastPractice {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.moduleArrow {
+  color: var(--gold-300);
+  font-size: 0.82rem;
+  font-weight: 780;
+}
+
+.bottomRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.sessionsCard,
+.tipsCard {
+  padding: 1.25rem;
+  border: 1px solid var(--oxford-border);
+  border-radius: 14px;
+  background: var(--gradient-card);
+}
+
+.cardTitle {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.sessionsList,
+.tipsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.sessionItem {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.72rem;
+  border: 1px solid var(--oxford-border);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+}
+
+.sessionInfo { min-width: 0; }
+
+.sessionType {
+  color: var(--text-primary);
+  font-size: 0.84rem;
+  font-weight: 740;
+}
+
+.sessionDate {
+  margin-top: 0.1rem;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+.sessionResult {
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.tipItem {
+  display: grid;
+  grid-template-columns: 1.35rem 1fr;
+  gap: 0.65rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--oxford-border);
+}
+
+.tipItem:last-child { border-bottom: 0; padding-bottom: 0; }
+.tipIcon { color: var(--gold-300); }
+
+.tipText {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .header,
+  .overallCard {
+    grid-template-columns: 1fr;
+  }
+
+  .overallStats {
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .modulesGrid,
+  .bottomRow {
+    grid-template-columns: 1fr;
+  }
+
+  .overallStats {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,127 @@
+.main { padding-top: 5rem; padding-bottom: 4rem; min-height: 100vh; }
+.header { padding-top: 2rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.heading { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; }
+
+/* ── Layout grid ── */
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .layoutGrid { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
+.leftCol { display: flex; flex-direction: column; }
+.rightCol { display: flex; flex-direction: column; }
+
+/* ── Exercise selector ── */
+.exSelector { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.5rem; }
+.exBtn {
+  display: flex; align-items: center; gap: 0.85rem;
+  padding: 0.8rem 1.1rem; border-radius: var(--radius-md);
+  border: 1px solid var(--oxford-border);
+  background: rgba(255,255,255,0.025);
+  color: var(--text-muted); cursor: pointer;
+  transition: all 0.18s ease; text-align: left;
+}
+.exBtn:hover { background: var(--reading-bg); color: var(--text-secondary); border-color: var(--reading-border); }
+.exActive { background: var(--reading-bg) !important; border-color: var(--reading-border) !important; color: var(--reading-color) !important; }
+.exPart { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.exType { font-size: 0.88rem; font-weight: 600; }
+
+/* ── Exercise card ── */
+.exerciseCard {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--reading-border);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  display: flex; flex-direction: column; gap: 1.25rem;
+}
+
+/* ── Strategy box (always visible) ── */
+.strategyBox {
+  display: flex; gap: 0.65rem; align-items: flex-start;
+  padding: 0.9rem 1rem;
+  background: rgba(91,155,213,0.06);
+  border: 1px solid rgba(91,155,213,0.16);
+  border-radius: var(--radius-md);
+}
+.strategyBox p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55; }
+.strategyBox strong { color: var(--text-primary); }
+
+/* ── Text passage ── */
+.textContainer {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--oxford-border);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.4rem;
+  font-size: 0.9rem; color: var(--text-secondary);
+  line-height: 1.75;
+  border-left: 3px solid var(--reading-color);
+}
+.textContainer p + p { margin-top: 0.85rem; }
+
+/* ── Question instruction ── */
+.instruction {
+  font-size: 1rem; font-weight: 600;
+  color: var(--text-primary); line-height: 1.55;
+  padding: 0.9rem 1rem;
+  background: var(--reading-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--reading-border);
+}
+
+/* ── Options ── */
+.options { display: flex; flex-direction: column; gap: 0.55rem; }
+.optionBtn {
+  display: flex; align-items: center; gap: 0.85rem;
+  width: 100%; padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-md); border: 1px solid var(--oxford-border);
+  background: rgba(255,255,255,0.03);
+  color: var(--text-secondary); cursor: pointer; font-size: 0.9rem;
+  text-align: left; transition: all 0.15s ease;
+}
+.optionBtn:hover:not(:disabled) { background: var(--reading-bg); border-color: var(--reading-border); color: var(--text-primary); }
+.optionBtn:disabled { cursor: default; }
+
+.opt_selected { background: rgba(212,168,48,0.10) !important; border-color: rgba(212,168,48,0.35) !important; color: var(--text-primary) !important; }
+.opt_correct  { background: rgba(59,175,142,0.12) !important; border-color: rgba(59,175,142,0.40) !important; color: var(--writing-color) !important; animation: correctPop 0.3s ease; }
+.opt_wrong    { background: rgba(176,80,80,0.10)  !important; border-color: rgba(176,80,80,0.35)  !important; color: #B05050 !important; }
+
+@keyframes correctPop { 0% { transform: scale(0.98); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+
+.optLetter {
+  min-width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; background: rgba(255,255,255,0.06);
+  border: 1px solid var(--oxford-border);
+  font-size: 0.75rem; font-weight: 800;
+  flex-shrink: 0; color: var(--text-secondary);
+}
+.optCheck { margin-left: auto; color: var(--writing-color); font-weight: 700; }
+.optCross { margin-left: auto; color: #B05050; font-weight: 700; }
+
+/* ── Tip / hint boxes ── */
+.tipBox {
+  display: flex; gap: 0.6rem; align-items: flex-start;
+  padding: 0.85rem 1rem;
+  background: rgba(212,168,48,0.06);
+  border: 1px solid rgba(212,168,48,0.18);
+  border-radius: var(--radius-md); cursor: pointer;
+  font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55;
+}
+.tipBox:hover { background: rgba(212,168,48,0.10); }
+
+/* ── Result + Explanation ── */
+.result { font-size: 1.05rem; font-weight: 700; padding: 0.5rem 0; }
+.explanation {
+  padding: 1rem; border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.03); border: 1px solid var(--oxford-border);
+  font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;
+}
+
+/* ── Actions ── */
+.actions { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }

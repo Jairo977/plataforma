@@ -1,0 +1,201 @@
+.main { min-height: 100vh; padding-top: 5rem; padding-bottom: 4rem; }
+.examMode { padding-top: 0; background: var(--oxford-navy); }
+
+/* ── SETUP ── */
+.setupPage { display: flex; flex-direction: column; gap: 1.5rem; }
+.setupHeader { padding-top: 2rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.setupTitle { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; color: var(--text-primary); }
+.setupSub { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
+
+.modulePicker { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.875rem; }
+.modCard {
+  padding: 1.25rem; border-radius: 16px;
+  border: 1px solid var(--oxford-border); background: var(--oxford-border);
+  cursor: pointer; transition: all 0.25s ease; text-align: left; display: flex; flex-direction: column; gap: 0.75rem;
+}
+.modCard:hover { background: var(--oxford-border); border-color: var(--oxford-border); }
+.modCardTop { display: flex; align-items: center; gap: 0.75rem; width: 100%; }
+.modCardIcon { font-size: 1.4rem; }
+.modCheck { margin-left: auto; color: #34d399; font-weight: 800; font-size: 1rem; }
+.modCardStats { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.modCardStats span { font-size: 0.72rem; color: var(--text-muted); }
+.modCardFeature { font-size: 0.78rem; color: var(--text-muted); }
+
+.modCardActive { background: var(--oxford-card) !important; border-width: 2px !important; }
+.mod_speaking.modCardActive { border-color: rgba(167,139,250,0.4) !important; background: rgba(167,139,250,0.06) !important; }
+.mod_writing.modCardActive  { border-color: rgba(52,211,153,0.4)  !important; background: rgba(52,211,153,0.06)  !important; }
+.mod_listening.modCardActive{ border-color: rgba(248,113,113,0.4) !important; background: rgba(248,113,113,0.06) !important; }
+.mod_reading.modCardActive  { border-color: rgba(96,165,250,0.4)  !important; background: rgba(96,165,250,0.06)  !important; }
+
+.setupSummary {
+  display: flex; gap: 2rem; align-items: center; justify-content: center;
+  padding: 1.5rem; border-radius: 16px;
+  background: var(--oxford-border); border: 1px solid var(--oxford-border);
+  margin-bottom: 1.5rem; flex-wrap: wrap;
+}
+.sumItem { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+.sumNum { font-size: 2rem; font-weight: 900; color: var(--gold-400); }
+.sumLabel { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.setupNote { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.startBtn { width: 100%; justify-content: center; font-size: 1.05rem; }
+
+/* ── EXAM MODE ── */
+.examLayout { display: flex; flex-direction: column; height: 100vh; }
+
+.examBar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.875rem 1.5rem;
+  background: var(--oxford-surface); border-bottom: 1px solid var(--oxford-border);
+  backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 50;
+  flex-wrap: wrap; gap: 0.5rem;
+  transition: background 0.3s ease;
+}
+.examBarWarn { background: rgba(220,38,38,0.15) !important; border-bottom-color: rgba(248,113,113,0.3) !important; }
+
+.examBarLeft, .examBarRight { display: flex; align-items: center; gap: 0.75rem; }
+.partLabel { font-size: 0.8rem; color: var(--text-secondary); }
+.qCounter { font-size: 0.8rem; color: var(--text-secondary); }
+
+.timerBox { font-size: 1.1rem; font-weight: 800; color: var(--text-primary); font-variant-numeric: tabular-nums; padding: 0.3rem 0.75rem; border-radius: 8px; background: var(--oxford-border); }
+.timerWarn { color: #f87171 !important; background: rgba(248,113,113,0.1) !important; animation: pulse 1s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+.modStrip {
+  display: flex; overflow-x: auto;
+  border-bottom: 1px solid var(--oxford-border);
+  background: var(--oxford-surface);
+}
+.modStripItem {
+  padding: 0.5rem 1rem; font-size: 0.75rem; color: var(--text-muted);
+  white-space: nowrap; transition: all 0.2s ease; text-transform: capitalize;
+  border-right: 1px solid var(--oxford-border);
+}
+.modStripActive { color: var(--gold-400); background: rgba(251,191,36,0.06); }
+.modStripDone { color: #34d399; }
+
+.examContent { flex: 1; overflow-y: auto; display: flex; align-items: flex-start; justify-content: center; padding: 2rem 1rem; }
+
+.examCard {
+  width: 100%; max-width: 720px;
+  padding: 2.5rem;
+  background: var(--oxford-card); border: 1px solid var(--oxford-border);
+  border-radius: 20px; display: flex; flex-direction: column; gap: 1.5rem;
+}
+
+.qPrompt { font-size: 1rem; color: var(--text-primary); line-height: 1.75; }
+
+.writingTextarea { min-height: 200px !important; }
+.wordCountBar { display: flex; gap: 0.4rem; justify-content: flex-end; font-size: 0.8rem; margin-top: 0.5rem; }
+
+.optionsList { display: flex; flex-direction: column; gap: 0.6rem; }
+.optBtn {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.875rem 1.25rem; border-radius: 12px;
+  border: 1px solid var(--oxford-border); background: var(--oxford-border);
+  color: var(--text-secondary); font-size: 0.9rem; cursor: pointer; transition: all 0.2s ease; text-align: left;
+}
+.optBtn:hover { background: var(--oxford-border); border-color: var(--oxford-border); color: var(--text-primary); }
+.optSelected { background: rgba(251,191,36,0.08) !important; border-color: rgba(251,191,36,0.3) !important; color: var(--gold-400) !important; }
+.optLetter { width: 28px; height: 28px; border-radius: 50%; background: var(--oxford-border); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.8rem; flex-shrink: 0; }
+.optDot { margin-left: auto; color: var(--gold-400); }
+
+/* Audio Panel */
+.audioPanel {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.25rem; border-radius: 12px;
+  background: var(--oxford-border); border: 1px solid var(--oxford-border);
+  flex-wrap: wrap; gap: 0.75rem;
+}
+.audioPanelLeft { display: flex; align-items: center; gap: 1rem; }
+.audioPanelLabel { font-size: 0.85rem; color: var(--text-primary); font-weight: 500; }
+.audioPanelSub { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem; }
+.audioLimit { font-size: 0.72rem; color: #f87171; }
+.audioBtns { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+
+.audioWave { display: flex; align-items: flex-end; gap: 2px; width: 40px; height: 24px; }
+.audioBar { width: 2px; height: 4px; background: var(--text-muted); transition: height 0.2s; }
+.audioWaveActive .audioBar {
+  background: var(--gold-400);
+  animation: wave 1.2s ease-in-out infinite;
+}
+@keyframes wave {
+  0%, 100% { height: 4px; }
+  50% { height: 24px; }
+}
+
+.contextBox {
+  padding: 1.5rem; border-radius: 12px;
+  background: var(--oxford-border); border: 1px solid var(--oxford-border);
+  font-size: 0.92rem; color: var(--text-secondary); line-height: 1.85;
+}
+
+/* Voice Section */
+.voiceSection { display: flex; flex-direction: column; gap: 1rem; }
+.voiceTimer { display: flex; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted); }
+.voiceTimerVal { font-weight: 700; color: var(--text-primary); }
+.voiceControls { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
+.micBtn { width: 100%; max-width: 280px; }
+.btnRecording { background: #ef4444 !important; color: #fff !important; }
+.recDot { width: 8px; height: 8px; border-radius: 50%; background: #fff; display: inline-block; margin-right: 0.5rem; animation: pulse 1s infinite; }
+.recordingIndicator { display: flex; align-items: center; gap: 0.75rem; font-size: 0.85rem; color: #ef4444; }
+.recWave { display: flex; gap: 2px; height: 16px; align-items: flex-end; }
+.recBar { width: 2px; height: 3px; background: #ef4444; animation: wave 1s ease-in-out infinite; }
+
+.transcriptResult { width: 100%; padding: 1.25rem; border-radius: 12px; background: var(--oxford-border); border: 1px solid var(--oxford-border); }
+.transcriptLabel { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem; }
+.transcriptText { font-size: 0.9rem; color: var(--text-primary); line-height: 1.6; }
+.transcriptStats { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; text-align: right; }
+
+.voiceFallback { width: 100%; display: flex; flex-direction: column; gap: 0.75rem; }
+.voiceFallbackTitle { font-size: 0.9rem; font-weight: 700; color: #fbbf24; }
+.voiceFallbackSub { font-size: 0.8rem; color: var(--text-secondary); }
+.voiceFallbackAlt { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+.examNav { display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; }
+
+/* ── RESULTS ── */
+.resultsPage { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; padding-top: 3rem; text-align: center; }
+.resBadge { font-size: 3rem; }
+.resTitle { font-size: 2rem; font-weight: 800; color: var(--text-primary); }
+.resSub { font-size: 0.95rem; color: var(--text-secondary); }
+
+.resScoreBox {
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  padding: 2.5rem 3.5rem; border-radius: 24px;
+  background: var(--oxford-card); border: 1px solid var(--oxford-border);
+}
+.resLevelBig { font-size: 4rem; font-weight: 900; line-height: 1; }
+.resScoreNum { font-size: 2rem; font-weight: 800; color: var(--text-primary); }
+.resScoreSub { font-size: 0.85rem; color: var(--text-muted); }
+
+.resModules { display: flex; flex-direction: column; gap: 0.6rem; width: 100%; max-width: 480px; }
+.resModule {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.875rem 1.25rem; border-radius: 12px;
+  border: 1px solid var(--oxford-border); background: var(--oxford-border);
+  text-align: left;
+}
+.resModIcon { font-size: 1.3rem; }
+.resModInfo { flex: 1; }
+.resModName { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); }
+.resModScore { font-size: 0.78rem; margin-top: 0.1rem; }
+.resModPending { font-size: 0.78rem; margin-top: 0.1rem; }
+
+.resMod_speaking { border-left: 3px solid rgba(167,139,250,0.5); }
+.resMod_writing  { border-left: 3px solid rgba(52,211,153,0.5); }
+.resMod_listening{ border-left: 3px solid rgba(248,113,113,0.5); }
+.resMod_reading  { border-left: 3px solid rgba(96,165,250,0.5); }
+
+.resNote {
+  font-size: 0.82rem; color: var(--text-muted); max-width: 520px;
+  padding: 0.875rem 1.25rem; background: var(--oxford-border);
+  border: 1px solid var(--oxford-border); border-radius: 10px;
+  line-height: 1.6;
+}
+
+.resActions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+@media (max-width: 768px) {
+  .modulePicker { grid-template-columns: 1fr; }
+  .examCard { padding: 1.5rem; }
+}
